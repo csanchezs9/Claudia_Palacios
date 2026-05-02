@@ -1,0 +1,138 @@
+import type { Metadata } from "next";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { SITE, whatsappUrl } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Contacto — Agenda tu cita",
+  description:
+    "Agenda tu cita con la Dra. Claudia Palacios. Torre Medical, El Poblado, Medellín. WhatsApp +57 304 201 9977.",
+  alternates: { canonical: "/contacto" },
+};
+
+export default function ContactoPage() {
+  return (
+    <>
+      <section className="container-page pt-16 pb-12 lg:pt-24">
+        <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+          Contacto
+        </span>
+        <h1 className="text-5xl lg:text-6xl mt-4 max-w-3xl">
+          Agenda tu consulta
+        </h1>
+        <p className="text-muted text-lg mt-6 max-w-2xl leading-relaxed">
+          Estamos disponibles por WhatsApp, teléfono o correo. Te respondemos
+          en el menor tiempo posible.
+        </p>
+      </section>
+
+      <section className="container-page pb-24 grid lg:grid-cols-2 gap-12">
+        <div className="space-y-6">
+          <a
+            href={whatsappUrl("Hola Dra. Claudia, quisiera agendar una cita.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-surface border border-border rounded-[var(--radius-card)] p-8 hover:border-primary/40 hover:shadow-lg transition-all"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-xl mb-1">WhatsApp</h2>
+                <p className="text-muted text-sm">Respuesta más rápida</p>
+                <p className="text-primary mt-2">{SITE.phoneDisplay}</p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href={`tel:${SITE.phoneClinic}`}
+            className="block bg-surface border border-border rounded-[var(--radius-card)] p-8 hover:border-primary/40 transition-all"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <Phone size={20} />
+              </div>
+              <div>
+                <h2 className="text-xl mb-1">Teléfono consultorio</h2>
+                <p className="text-muted text-sm">Torre Medical</p>
+                <p className="text-primary mt-2">{SITE.phoneClinicDisplay}</p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href={`mailto:${SITE.email}`}
+            className="block bg-surface border border-border rounded-[var(--radius-card)] p-8 hover:border-primary/40 transition-all"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <Mail size={20} />
+              </div>
+              <div>
+                <h2 className="text-xl mb-1">Correo electrónico</h2>
+                <p className="text-muted text-sm">Consultas no urgentes</p>
+                <p className="text-primary mt-2 break-all">{SITE.email}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <MapPin size={20} />
+              </div>
+              <div>
+                <h2 className="text-xl mb-1">Ubicación</h2>
+                <p className="text-muted">
+                  {SITE.address.street}<br />
+                  El Poblado, {SITE.address.city}
+                </p>
+              </div>
+            </div>
+            <div className="aspect-video rounded-lg overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7!2d-75.5695!3d6.2086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMzAuOSJOIDc1wrAzNCcxMC4yIlc!5e0!3m2!1ses!2sco!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación Torre Medical"
+              />
+            </div>
+          </div>
+
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <Clock size={20} />
+              </div>
+              <div>
+                <h2 className="text-xl mb-3">Horario de atención</h2>
+                <ul className="text-muted space-y-1 text-sm">
+                  <li className="flex justify-between gap-6">
+                    <span>Lunes a Viernes</span>
+                    <span className="text-foreground">8:00 a.m. – 6:00 p.m.</span>
+                  </li>
+                  <li className="flex justify-between gap-6">
+                    <span>Sábado</span>
+                    <span className="text-foreground">9:00 a.m. – 1:00 p.m.</span>
+                  </li>
+                  <li className="flex justify-between gap-6">
+                    <span>Domingo</span>
+                    <span>Cerrado</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
