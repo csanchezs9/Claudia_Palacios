@@ -24,6 +24,7 @@ const HIGHLIGHTS = [
 
 export function ClinicTour() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const userPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
 
@@ -33,7 +34,9 @@ export function ClinicTour() {
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          v.play().then(() => setPlaying(true)).catch(() => {});
+          if (!userPaused.current) {
+            v.play().then(() => setPlaying(true)).catch(() => {});
+          }
         } else {
           v.pause();
           setPlaying(false);
@@ -49,9 +52,11 @@ export function ClinicTour() {
     const v = videoRef.current;
     if (!v) return;
     if (v.paused) {
+      userPaused.current = false;
       v.play();
       setPlaying(true);
     } else {
+      userPaused.current = true;
       v.pause();
       setPlaying(false);
     }
