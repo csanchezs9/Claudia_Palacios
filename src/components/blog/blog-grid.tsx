@@ -8,16 +8,9 @@ import { ArrowUpRight, Clock } from "lucide-react";
 import type { BlogPost } from "@/data/blog";
 import { CATEGORIES } from "@/data/blog";
 
-type Category = BlogPost["category"];
-type Filter = "todos" | Category;
+type Filter = BlogPost["category"] | null;
 
-const FILTER_LABELS: Record<Filter, string> = {
-  todos: "Todos",
-  ...CATEGORIES,
-};
-
-const FILTER_ORDER: Filter[] = [
-  "todos",
+const FILTER_ORDER: BlogPost["category"][] = [
   "dermatologia",
   "habitos-saludables",
   "ayurveda",
@@ -48,7 +41,7 @@ function HeroPost({ post }: { post: BlogPost }) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="md:col-span-2 md:row-span-2"
+      className="h-full"
     >
       <Link
         ref={ref}
@@ -109,7 +102,6 @@ function WidePost({ post }: { post: BlogPost }) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className="md:col-span-2"
     >
       <Link
         ref={ref}
@@ -202,27 +194,30 @@ function StandardPost({ post, index }: { post: BlogPost; index: number }) {
 }
 
 export function BlogGrid({ posts }: { posts: BlogPost[] }) {
-  const [filter, setFilter] = useState<Filter>("todos");
+  const [filter, setFilter] = useState<Filter>(null);
 
   const filtered = useMemo(() => {
-    if (filter === "todos") return posts;
+    if (filter === null) return posts;
     return posts.filter((p) => p.category === filter);
   }, [filter, posts]);
 
-  const [hero, wide, ...rest] = filtered;
+  const [hero, ...tail] = filtered;
+  const sideCards = tail.slice(0, 2);
+  const wide = tail[2];
+  const rest = tail.slice(3);
 
   return (
     <>
-      <div className="container-page sticky top-20 z-30 -mx-4 lg:mx-0">
-        <div className="bg-background/80 backdrop-blur-md py-4 px-4 lg:px-0 -mx-4 lg:mx-0">
-          <div className="flex gap-2 overflow-x-auto scrollbar-none">
+      <div className="sticky top-20 z-30 bg-background/80 backdrop-blur-md py-4 border-y border-border/40">
+        <div className="container-page">
+          <div className="flex flex-wrap justify-center gap-2">
             {FILTER_ORDER.map((f) => {
               const active = filter === f;
               return (
                 <button
                   key={f}
-                  onClick={() => setFilter(f)}
-                  className={`relative px-4 py-2 text-sm rounded-full whitespace-nowrap transition-colors ${
+                  onClick={() => setFilter(active ? null : f)}
+                  className={`relative px-5 py-2 text-sm rounded-full whitespace-nowrap transition-colors ${
                     active ? "text-surface" : "text-muted hover:text-foreground"
                   }`}
                 >
@@ -233,7 +228,7 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                  <span className="relative">{FILTER_LABELS[f]}</span>
+                  <span className="relative">{CATEGORIES[f]}</span>
                 </button>
               );
             })}
@@ -241,19 +236,47 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
         </div>
       </div>
 
-      <div className="container-page pt-8 pb-24">
+      <div className="container-page pt-10 pb-24">
         {filtered.length === 0 ? (
           <div className="text-center py-32 text-muted">
             No hay artículos en esta categoría todavía.
           </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 auto-rows-min gap-5">
+        ) : filtered.length === 1 ? (
+          <div className="max-w-4xl mx-auto">
             {hero && <HeroPost post={hero} />}
-            {wide && <WidePost post={wide} />}
-            {rest.map((post, i) => (
-              <StandardPost key={post.slug} post={post} index={i} />
-            ))}
           </div>
+        ) : (
+          <>
+            {/* Top row: hero (2 cols) + side cards stacked (1 col) */}
+            <div className="grid lg:grid-cols-3 gap-5 mb-5">
+              {hero && (
+                <div className="lg:col-span-2">
+                  <HeroPost post={hero} />
+                </div>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+                {sideCards.map((post, i) => (
+                  <StandardPost key={post.slug} post={post} index={i} />
+                ))}
+              </div>
+            </div>
+
+            {/* Wide featured row */}
+            {wide && (
+              <div className="mb-5">
+                <WidePost post={wide} />
+              </div>
+            )}
+
+            {/* Rest grid */}
+            {rest.length > 0 && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {rest.map((post, i) => (
+                  <StandardPost key={post.slug} post={post} index={i} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
     </>
