@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { SITE, whatsappUrl } from "@/lib/utils";
+import { ContactForm } from "@/components/sections/contact-form";
 
 export const metadata: Metadata = {
   title: "Contacto — Agenda tu cita",
@@ -25,8 +26,12 @@ export default function ContactoPage() {
         </p>
       </section>
 
-      <section className="container-page pb-24 grid lg:grid-cols-2 gap-12">
-        <div className="space-y-6">
+      <section className="container-page pb-24 grid lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-1">
+          <ContactForm />
+        </div>
+
+        <div className="lg:col-span-1 space-y-6">
           <a
             href={whatsappUrl("Hola Dra. Claudia, quisiera agendar una cita.")}
             target="_blank"
@@ -80,7 +85,7 @@ export default function ContactoPage() {
           </a>
         </div>
 
-        <div className="space-y-6">
+        <div className="lg:col-span-1 space-y-6">
           <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">

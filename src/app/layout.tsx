@@ -3,7 +3,9 @@ import { Cormorant_Garamond, Inter, Italiana } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
+import { MobileCTA } from "@/components/layout/mobile-cta";
 import { OrganizationSchema } from "@/components/seo/organization-schema";
+import { Analytics, AnalyticsNoScript } from "@/components/analytics/analytics";
 import { SITE } from "@/lib/utils";
 import "./globals.css";
 
@@ -89,12 +91,15 @@ export default function RootLayout({
       lang="es-CO"
       className={`${inter.variable} ${cormorant.variable} ${italiana.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground pb-20 lg:pb-0">
+        <AnalyticsNoScript />
         <OrganizationSchema />
+        <Analytics />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <MobileCTA />
       </body>
     </html>
   );
