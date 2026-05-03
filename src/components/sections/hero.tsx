@@ -7,13 +7,13 @@ import { whatsappUrl, SITE } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+    <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 min-h-[calc(100vh-5rem)] flex items-center">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute bottom-0 -left-32 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
       </div>
 
-      <div className="container-page pt-16 pb-24 lg:pt-24 lg:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container-page py-12 lg:py-16 grid lg:grid-cols-2 gap-12 items-center w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
