@@ -58,10 +58,11 @@ function HeroPost({ post }: { post: BlogPost }) {
             className="object-cover"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
-        <div className="relative h-full flex flex-col justify-end p-8 lg:p-12 text-surface">
-          <div className="flex items-center gap-3 text-xs text-surface/85 mb-5">
-            <span className="bg-primary px-3 py-1 rounded-full uppercase tracking-[0.2em] text-[10px]">
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/15" />
+        <div className="relative h-full flex flex-col justify-end p-8 lg:p-12 text-surface [text-shadow:_0_2px_12px_rgba(0,0,0,0.45)]">
+          <div className="flex items-center gap-3 text-xs text-surface/95 mb-5">
+            <span className="bg-primary px-3 py-1 rounded-full uppercase tracking-[0.2em] text-[10px] [text-shadow:none]">
               Destacado
             </span>
             <span className="uppercase tracking-[0.15em]">
@@ -72,10 +73,10 @@ function HeroPost({ post }: { post: BlogPost }) {
               <Clock size={12} /> {post.readMinutes} min
             </span>
           </div>
-          <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] mb-5 max-w-3xl group-hover:text-primary-light transition-colors">
+          <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] mb-5 max-w-3xl text-surface group-hover:text-primary-light transition-colors">
             {post.title}
           </h2>
-          <p className="text-surface/90 text-base lg:text-lg max-w-2xl leading-relaxed mb-6">
+          <p className="text-surface text-base lg:text-lg max-w-2xl leading-relaxed mb-6">
             {post.excerpt}
           </p>
           <span className="inline-flex items-center gap-2 text-sm group-hover:gap-3 transition-all">
