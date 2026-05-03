@@ -66,19 +66,19 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none w-full"
+          className="relative aspect-[5/4] max-w-xl mx-auto lg:max-w-none w-full"
         >
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/15 to-primary-dark/10" />
           <div className="absolute inset-4 rounded-[1.75rem] bg-surface shadow-2xl shadow-primary/10 overflow-hidden">
             <Image
-              src="/img/dra-claudia.jpg"
+              src="/img/galeria/galeria-1.jpg"
               alt="Dra. Claudia Palacios, dermatóloga en Medellín"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-6">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
               <p className="font-display text-xl text-surface">Dra. Claudia Palacios</p>
               <p className="text-xs text-surface/80 uppercase tracking-[0.2em] mt-1">
                 ASOCOLDERMA · UPB · U. de Antioquia

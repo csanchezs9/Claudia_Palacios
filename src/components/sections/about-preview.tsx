@@ -12,15 +12,15 @@ export function AboutPreview() {
   return (
     <section className="section-y bg-surface">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none w-full">
+        <div className="relative aspect-[5/4] max-w-lg mx-auto lg:max-w-none w-full">
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent/20 via-primary/10 to-primary-dark/15" />
           <div className="absolute inset-3 rounded-[1.5rem] overflow-hidden border border-border">
             <Image
-              src="/img/galeria/galeria-1.jpg"
+              src="/img/galeria/galeria-3.jpg"
               alt="Dra. Claudia Palacios en consulta"
               fill
               sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
           <div className="absolute -bottom-4 -right-4 bg-surface border border-border rounded-2xl p-5 max-w-[220px] shadow-xl">

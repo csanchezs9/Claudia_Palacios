@@ -22,8 +22,19 @@ const SLUGS_WITH_IMG = new Set([
   "spectrum-mask",
 ]);
 
-export function procImage(slug: string): string | undefined {
-  return SLUGS_WITH_IMG.has(slug) ? `/img/procedimientos/${slug}.jpg` : undefined;
+const PROC_FALLBACKS: Record<string, string> = {
+  "toxina-botulinica": "/img/galeria/galeria-4.jpg",
+  "acido-hialuronico": "/img/galeria/galeria-5.jpg",
+  "mesoterapia": "/img/galeria/galeria-6.jpg",
+  "hilos-tensores": "/img/galeria/galeria-7.jpg",
+  "radiofrecuencia": "/img/galeria/galeria-8.jpg",
+  "microneedling": "/img/galeria/galeria-9.jpg",
+  "depilacion-laser": "/img/consultorio/consultorio-1.jpg",
+};
+
+export function procImage(slug: string): string {
+  if (SLUGS_WITH_IMG.has(slug)) return `/img/procedimientos/${slug}.jpg`;
+  return PROC_FALLBACKS[slug] ?? "/img/consultorio/consultorio-2.jpg";
 }
 
 export const PROCEDIMIENTOS: Procedimiento[] = [

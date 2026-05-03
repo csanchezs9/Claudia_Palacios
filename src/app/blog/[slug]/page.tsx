@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -51,6 +52,16 @@ export default async function BlogPost({
       </div>
       <h1 className="text-4xl lg:text-5xl mb-6">{p.title}</h1>
       <p className="text-lg text-muted leading-relaxed mb-10">{p.excerpt}</p>
+      <div className="relative aspect-[16/9] rounded-[var(--radius-card)] overflow-hidden mb-10 border border-border">
+        <Image
+          src={p.image}
+          alt={p.title}
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 768px"
+          className="object-cover"
+        />
+      </div>
       <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed">
         <p>{p.content}</p>
       </div>

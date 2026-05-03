@@ -44,15 +44,15 @@ export default function SobreLaDoctora() {
             de Antioquia.
           </p>
         </div>
-        <div className="lg:col-span-2 relative aspect-[4/5] max-w-sm mx-auto lg:max-w-none w-full">
+        <div className="lg:col-span-2 relative aspect-[5/4] max-w-md mx-auto lg:max-w-none w-full">
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/15 to-primary-dark/10" />
           <div className="absolute inset-3 rounded-[1.75rem] overflow-hidden shadow-xl">
             <Image
-              src="/img/dra-claudia.jpg"
+              src="/img/galeria/galeria-2.jpg"
               alt="Dra. Claudia Palacios"
               fill
               sizes="(max-width: 1024px) 80vw, 40vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
         </div>

@@ -16,8 +16,18 @@ const ENF_SLUGS_WITH_IMG = new Set([
   "melasma",
 ]);
 
-export function enfImage(slug: string): string | undefined {
-  return ENF_SLUGS_WITH_IMG.has(slug) ? `/img/enfermedades/${slug}.jpg` : undefined;
+const ENF_FALLBACKS: Record<string, string> = {
+  "rosacea": "/img/consultorio/consultorio-3.jpg",
+  "psoriasis": "/img/consultorio/consultorio-4.jpg",
+  "vitiligo": "/img/consultorio/consultorio-5.jpg",
+  "verrugas": "/img/consultorio/consultorio-6.jpg",
+  "lunares": "/img/galeria/galeria-2.jpg",
+  "envejecimiento-cutaneo": "/img/galeria/galeria-7.jpg",
+};
+
+export function enfImage(slug: string): string {
+  if (ENF_SLUGS_WITH_IMG.has(slug)) return `/img/enfermedades/${slug}.jpg`;
+  return ENF_FALLBACKS[slug] ?? "/img/consultorio/consultorio-1.jpg";
 }
 
 export const ENFERMEDADES: Enfermedad[] = [

@@ -6,6 +6,7 @@ export type BlogPost = {
   date: string;
   readMinutes: number;
   content: string;
+  image: string;
 };
 
 export const CATEGORIES: Record<BlogPost["category"], string> = {
@@ -25,6 +26,7 @@ export const POSTS: BlogPost[] = [
     category: "dermatologia",
     date: "2025-04-12",
     readMinutes: 6,
+    image: "/img/galeria/galeria-4.jpg",
     content:
       "El clima de Medellín, con su altitud de 1.500 metros, alta radiación UV y humedad variable, exige una rutina de cuidado facial específica...",
   },
@@ -36,6 +38,7 @@ export const POSTS: BlogPost[] = [
     category: "dermatologia",
     date: "2025-03-28",
     readMinutes: 8,
+    image: "/img/enfermedades/melasma.jpg",
     content:
       "El melasma es una de las causas más frecuentes de consulta dermatológica estética...",
   },
@@ -47,6 +50,7 @@ export const POSTS: BlogPost[] = [
     category: "habitos-saludables",
     date: "2025-03-10",
     readMinutes: 5,
+    image: "/img/galeria/galeria-5.jpg",
     content:
       "La piel es el reflejo de lo que comemos. Una alimentación equilibrada...",
   },
@@ -58,6 +62,7 @@ export const POSTS: BlogPost[] = [
     category: "ayurveda",
     date: "2025-02-22",
     readMinutes: 7,
+    image: "/img/galeria/galeria-6.jpg",
     content: "El Ayurveda ofrece una perspectiva interesante sobre la relación...",
   },
   {
@@ -68,6 +73,7 @@ export const POSTS: BlogPost[] = [
     category: "yoga",
     date: "2025-02-08",
     readMinutes: 6,
+    image: "/img/galeria/galeria-7.jpg",
     content: "El cortisol elevado de manera crónica tiene efectos visibles sobre la piel...",
   },
 ];

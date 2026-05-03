@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { POSTS, CATEGORIES } from "@/data/blog";
@@ -33,7 +34,15 @@ export default function BlogPage() {
               href={`/blog/${p.slug}`}
               className="group bg-surface rounded-[var(--radius-card)] border border-border overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all"
             >
-              <div className="aspect-[16/10] bg-gradient-to-br from-primary/15 via-accent/10 to-primary-dark/10" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-7">
                 <div className="flex items-center gap-3 text-xs text-muted mb-3">
                   <span className="text-primary uppercase tracking-[0.15em]">
