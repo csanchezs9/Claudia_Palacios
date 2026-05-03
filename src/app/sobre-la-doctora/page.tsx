@@ -218,6 +218,45 @@ export default function SobreLaDoctora() {
         </div>
       </section>
 
+      <section className="bg-surface section-y">
+        <div className="container-page">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+              Avales profesionales
+            </span>
+            <h2 className="text-4xl lg:text-5xl mt-3">
+              Convenios y sociedades
+            </h2>
+            <p className="text-muted mt-4">
+              Miembro activa de las principales organizaciones dermatológicas y académicas de Colombia.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SOCIEDADES.map((s) => (
+              <a
+                key={s.nombre}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between gap-4 border border-border rounded-[var(--radius-card)] p-6 bg-background hover:border-primary hover:shadow-md transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <Users size={20} className="text-primary mt-0.5 shrink-0" />
+                    <ExternalLink size={14} className="text-muted group-hover:text-primary transition-colors shrink-0" />
+                  </div>
+                  <h3 className="font-display text-xl leading-snug">{s.nombre}</h3>
+                  <p className="text-sm text-muted mt-2 leading-relaxed">{s.descripcion}</p>
+                </div>
+                <span className="text-xs uppercase tracking-[0.2em] text-primary font-medium">
+                  Ver sitio oficial →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-y">
         <div className="container-page">
           <div className="bg-surface border border-border rounded-[var(--radius-card)] p-10 lg:p-14 text-center max-w-3xl mx-auto">
