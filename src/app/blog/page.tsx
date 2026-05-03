@@ -21,19 +21,17 @@ export default function BlogPage() {
         }}
       />
 
-      <section className="container-page pt-20 pb-12 lg:pt-28">
-        <div className="max-w-4xl">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
-            Blog
-          </span>
-          <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl mt-4 leading-[0.95]">
-            Conocimiento que <span className="font-accent italic text-primary">cuida</span> tu piel
-          </h1>
-          <p className="text-muted text-lg lg:text-xl mt-8 max-w-2xl leading-relaxed">
-            Artículos sobre dermatología clínica, hábitos saludables, ayurveda,
-            yoga y la conexión profunda entre bienestar interior y la piel.
-          </p>
-        </div>
+      <section className="container-page pt-20 pb-16 lg:pt-28 text-center">
+        <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+          Blog
+        </span>
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 leading-[1] tracking-tight">
+          Conocimiento que <span className="font-accent italic text-primary">cuida</span> tu piel
+        </h1>
+        <p className="text-muted text-base sm:text-lg lg:text-xl mt-8 max-w-2xl mx-auto leading-relaxed">
+          Artículos sobre dermatología clínica, hábitos saludables, ayurveda,
+          yoga y la conexión entre bienestar interior y piel.
+        </p>
       </section>
 
       <BlogGrid posts={POSTS} />
