@@ -8,7 +8,7 @@ import { cn, whatsappUrl } from "@/lib/utils";
 
 const NAV = [
   { href: "/", label: "Inicio" },
-  { href: "/sobre-la-doctora", label: "La Doctora" },
+  { href: "/sobre-la-doctora", label: "Dra. Claudia Palacios" },
   { href: "/procedimientos", label: "Procedimientos" },
   { href: "/enfermedades", label: "Enfermedades" },
   { href: "/blog", label: "Blog" },
