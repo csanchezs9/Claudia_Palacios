@@ -5,7 +5,7 @@ import { ArrowUpRight, Award, GraduationCap, Stethoscope } from "lucide-react";
 const POINTS = [
   { Icon: Stethoscope, title: "Dermatología integral", desc: "Diagnóstico clínico, estética y láser bajo un mismo enfoque." },
   { Icon: GraduationCap, title: "Formación continua", desc: "Vinculada a UPB y EAFIT, en constante actualización." },
-  { Icon: Award, title: "Avales profesionales", desc: "Miembro activo de ASOCOLDERMA y DMAS/SADE." },
+  { Icon: Award, title: "Avales profesionales", desc: "Miembro activa de ASOCOLDERMA, SADE/DMAS, UPB, UDEA y EAFIT." },
 ];
 
 export function AboutPreview() {
