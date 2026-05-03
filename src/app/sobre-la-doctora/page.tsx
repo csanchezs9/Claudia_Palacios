@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { GraduationCap, Award, BookOpen, Stethoscope, Phone } from "lucide-react";
+import { GraduationCap, Award, BookOpen, Stethoscope, Phone, ExternalLink, Users } from "lucide-react";
 import { whatsappUrl, SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -26,6 +26,34 @@ const SERVICES = [
 ];
 
 const CONSULTORIO_IMGS = [1, 2, 3, 4, 5, 6];
+
+const SOCIEDADES = [
+  {
+    nombre: "ASOCOLDERMA",
+    descripcion: "Asociación Colombiana de Dermatología y Cirugía Dermatológica",
+    url: "https://asocolderma.org.co/",
+  },
+  {
+    nombre: "SADE / DMAS",
+    descripcion: "Sociedad Antioqueña de Dermatología y Especialidades",
+    url: "https://dmas.com.co/SADE",
+  },
+  {
+    nombre: "Universidad Pontificia Bolivariana",
+    descripcion: "Formación médica y especialización en dermatología",
+    url: "https://www.upb.edu.co/es/home",
+  },
+  {
+    nombre: "Universidad de Antioquia",
+    descripcion: "Docente de la Facultad de Medicina",
+    url: "http://www.udea.edu.co/wps/portal/udea/web/inicio",
+  },
+  {
+    nombre: "Universidad EAFIT",
+    descripcion: "Vinculación académica y desarrollo profesional",
+    url: "https://www.eafit.edu.co/",
+  },
+];
 
 export default function SobreLaDoctora() {
   return (
