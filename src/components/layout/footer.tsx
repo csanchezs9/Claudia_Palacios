@@ -100,7 +100,7 @@ export function Footer() {
       <div className="border-t border-surface/10">
         <div className="container-page py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-surface/60">
           <p>© {new Date().getFullYear()} Dra. Claudia Palacios. Todos los derechos reservados.</p>
-          <p>Registro médico vigente · ASOCOLDERMA</p>
+          <p>Registro médico vigente · ASOCOLDERMA · SADE/DMAS</p>
         </div>
       </div>
     </footer>
