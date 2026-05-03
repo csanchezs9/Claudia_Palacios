@@ -1,68 +1,19 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { PROCEDIMIENTOS } from "@/data/procedimientos";
-import { AnchorNav } from "@/components/procedimientos/anchor-nav";
-import { CategorySection } from "@/components/procedimientos/category-section";
+import { BodyMap, DiagnosticSection } from "@/components/procedimientos/body-map";
 import { whatsappUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Procedimientos Dermatológicos en Medellín",
   description:
-    "Toxina botulínica, ácido hialurónico, láser CO2, peelings y más. Procedimientos dermatológicos avanzados con la Dra. Claudia Palacios en Medellín.",
+    "Mapa interactivo de tratamientos dermatológicos por zona del cuerpo. Toxina botulínica, ácido hialurónico, láser CO2, peelings y más con la Dra. Claudia Palacios en Medellín.",
   alternates: { canonical: "/procedimientos" },
 };
 
-type Cat = "estetica" | "clinica" | "laser" | "tecnologia";
-
-const CATEGORY_META: Record<
-  Cat,
-  { label: string; tagline: string; description: string; hero: string }
-> = {
-  estetica: {
-    label: "Estética",
-    tagline: "para realzar tu belleza natural",
-    description:
-      "Tratamientos diseñados para potenciar tu mejor versión, conservando la naturalidad y armonía de cada rostro.",
-    hero: "toxina-botulinica",
-  },
-  clinica: {
-    label: "Clínica",
-    tagline: "para diagnóstico y manejo médico",
-    description:
-      "Procedimientos médicos que diagnostican, tratan y resuelven condiciones dermatológicas con precisión científica.",
-    hero: "cirugia-dermatologica",
-  },
-  laser: {
-    label: "Láser",
-    tagline: "tecnología que renueva la piel",
-    description:
-      "Energía láser de última generación para renovar, reparar y rejuvenecer la piel con resultados visibles.",
-    hero: "laser-co2-fraccionado",
-  },
-  tecnologia: {
-    label: "Tecnología",
-    tagline: "lo último en cuidado dermatológico",
-    description:
-      "Equipamiento de vanguardia para tratamientos no invasivos con máxima eficacia y mínimo tiempo de recuperación.",
-    hero: "geneo",
-  },
-};
-
-const ORDER: Cat[] = ["estetica", "clinica", "laser", "tecnologia"];
-const VARIANTS = ["ivory", "surface", "rose", "ivory"] as const;
-
 export default function ProcedimientosPage() {
-  const grouped = ORDER.map((cat, i) => {
-    const meta = CATEGORY_META[cat];
-    const all = PROCEDIMIENTOS.filter((p) => p.category === cat);
-    const hero = all.find((p) => p.slug === meta.hero) ?? all[0];
-    const rest = all.filter((p) => p.slug !== hero.slug);
-    return { cat, meta, hero, rest, variant: VARIANTS[i] };
-  });
-
   return (
     <>
-      <section className="container-page pt-20 pb-16 lg:pt-28 text-center">
+      <section className="container-page pt-20 pb-12 lg:pt-28 text-center">
         <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
           Procedimientos
         </span>
@@ -70,26 +21,14 @@ export default function ProcedimientosPage() {
           Tratamientos a la <span className="font-accent italic text-primary">medida</span> de tu piel
         </h1>
         <p className="text-muted text-base sm:text-lg lg:text-xl mt-8 max-w-2xl mx-auto leading-relaxed">
-          Procedimientos clínicos, estéticos y de tecnología avanzada
-          realizados con rigor médico y resultados naturales.
+          Selecciona la zona de tu cuerpo y descubre los procedimientos
+          disponibles. Cada tratamiento se realiza con rigor médico y
+          tecnología de vanguardia.
         </p>
       </section>
 
-      <AnchorNav />
-
-      {grouped.map(({ cat, meta, hero, rest, variant }, i) => (
-        <CategorySection
-          key={cat}
-          id={cat}
-          label={meta.label}
-          tagline={meta.tagline}
-          description={meta.description}
-          hero={hero}
-          rest={rest}
-          variant={variant}
-          index={i}
-        />
-      ))}
+      <BodyMap />
+      <DiagnosticSection />
 
       <section className="section-y">
         <div className="container-page">
