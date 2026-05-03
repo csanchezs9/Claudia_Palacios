@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
 
@@ -25,10 +26,17 @@ export function Footer() {
     <footer className="bg-foreground text-surface mt-24">
       <div className="container-page py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <h3 className="font-display text-2xl">Dra. Claudia Palacios</h3>
-          <p className="text-sm text-surface/70 mt-1 uppercase tracking-[0.2em]">
-            Dermatología integral
-          </p>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center p-1">
+              <Image src="/img/logo.png" alt="Logo" width={40} height={40} className="object-contain" />
+            </div>
+            <div>
+              <h3 className="font-display text-2xl">Dra. Claudia Palacios</h3>
+              <p className="text-xs text-surface/70 uppercase tracking-[0.2em]">
+                Dermatología integral
+              </p>
+            </div>
+          </div>
           <p className="text-sm text-surface/80 mt-6 max-w-md leading-relaxed">
             Dermatología clínica, estética y láser en Medellín. Atención
             personalizada con tecnología de última generación.

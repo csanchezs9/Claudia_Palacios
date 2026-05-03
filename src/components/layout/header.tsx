@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn, whatsappUrl } from "@/lib/utils";
@@ -35,12 +36,22 @@ export function Header() {
       )}
     >
       <div className="container-page flex items-center justify-between h-20">
-        <Link href="/" className="flex flex-col leading-none group">
-          <span className="font-display text-xl tracking-tight text-foreground transition-colors group-hover:text-primary">
-            Dra. Claudia Palacios
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-muted mt-1">
-            Dermatología · Medellín
+        <Link href="/" className="flex items-center gap-3 leading-none group">
+          <Image
+            src="/img/logo.png"
+            alt="Dra. Claudia Palacios"
+            width={48}
+            height={48}
+            priority
+            className="w-11 h-11 object-contain"
+          />
+          <span className="hidden sm:flex flex-col">
+            <span className="font-display text-lg tracking-tight text-foreground transition-colors group-hover:text-primary">
+              Dra. Claudia Palacios
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted mt-1">
+              Dermatóloga · Medellín
+            </span>
           </span>
         </Link>
 

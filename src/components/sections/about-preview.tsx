@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Award, GraduationCap, Stethoscope } from "lucide-react";
 
@@ -11,17 +12,21 @@ export function AboutPreview() {
   return (
     <section className="section-y bg-surface">
       <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative aspect-square max-w-md mx-auto lg:max-w-none w-full">
+        <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none w-full">
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent/20 via-primary/10 to-primary-dark/15" />
-          <div className="absolute inset-6 rounded-[1.5rem] bg-background border border-border flex items-center justify-center">
-            <div className="text-center px-8">
-              <p className="font-accent italic text-primary text-2xl">
-                "Cuidar la piel es cuidar la salud. Cada paciente, una historia única."
-              </p>
-              <p className="mt-6 text-sm uppercase tracking-[0.2em] text-muted">
-                Dra. Claudia Palacios
-              </p>
-            </div>
+          <div className="absolute inset-3 rounded-[1.5rem] overflow-hidden border border-border">
+            <Image
+              src="/img/galeria/galeria-1.jpg"
+              alt="Dra. Claudia Palacios en consulta"
+              fill
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-4 -right-4 bg-surface border border-border rounded-2xl p-5 max-w-[220px] shadow-xl">
+            <p className="font-accent italic text-primary text-sm leading-snug">
+              "La piel es uno de los regalos más maravillosos que tenemos."
+            </p>
           </div>
         </div>
 

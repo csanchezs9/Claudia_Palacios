@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Check, Clock } from "lucide-react";
-import { PROCEDIMIENTOS, getProcedimiento } from "@/data/procedimientos";
+import { PROCEDIMIENTOS, getProcedimiento, procImage } from "@/data/procedimientos";
 import { whatsappUrl } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -57,6 +58,18 @@ export default async function ProcedimientoPage({
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
+            {procImage(p.slug) && (
+              <div className="relative aspect-[16/9] rounded-[var(--radius-card)] overflow-hidden mb-10 border border-border">
+                <Image
+                  src={procImage(p.slug)!}
+                  alt={p.name}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
             <h1 className="text-5xl lg:text-6xl mb-6">{p.name}</h1>
             <p className="text-lg text-muted leading-relaxed mb-10">
               {p.description}

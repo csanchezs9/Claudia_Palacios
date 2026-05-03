@@ -7,6 +7,19 @@ export type Enfermedad = {
   treatments: string[];
 };
 
+const ENF_SLUGS_WITH_IMG = new Set([
+  "acne",
+  "alopecia",
+  "cancer-de-piel",
+  "dermatitis-atopica",
+  "hiperhidrosis",
+  "melasma",
+]);
+
+export function enfImage(slug: string): string | undefined {
+  return ENF_SLUGS_WITH_IMG.has(slug) ? `/img/enfermedades/${slug}.jpg` : undefined;
+}
+
 export const ENFERMEDADES: Enfermedad[] = [
   {
     slug: "acne",

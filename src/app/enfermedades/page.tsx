@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ENFERMEDADES } from "@/data/enfermedades";
+import { ENFERMEDADES, enfImage } from "@/data/enfermedades";
 
 export const metadata: Metadata = {
   title: "Enfermedades de la Piel — Tratamientos en Medellín",
@@ -28,22 +29,40 @@ export default function EnfermedadesPage() {
 
       <section className="container-page pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {ENFERMEDADES.map((e) => (
-            <Link
-              key={e.slug}
-              href={`/enfermedades/${e.slug}`}
-              className="group relative bg-surface rounded-[var(--radius-card)] border border-border p-8 transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
-            >
-              <h2 className="text-xl mb-2 group-hover:text-primary transition-colors">
-                {e.name}
-              </h2>
-              <p className="text-sm text-muted leading-relaxed">{e.short}</p>
-              <ArrowUpRight
-                size={18}
-                className="absolute top-6 right-6 text-muted group-hover:text-primary transition-colors"
-              />
-            </Link>
-          ))}
+          {ENFERMEDADES.map((e) => {
+            const img = enfImage(e.slug);
+            return (
+              <Link
+                key={e.slug}
+                href={`/enfermedades/${e.slug}`}
+                className="group bg-surface rounded-[var(--radius-card)] border border-border overflow-hidden transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  {img ? (
+                    <Image
+                      src={img}
+                      alt={e.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary/15 via-accent/10 to-primary-dark/10" />
+                  )}
+                </div>
+                <div className="p-7 relative">
+                  <h2 className="text-xl mb-2 group-hover:text-primary transition-colors">
+                    {e.name}
+                  </h2>
+                  <p className="text-sm text-muted leading-relaxed">{e.short}</p>
+                  <ArrowUpRight
+                    size={18}
+                    className="absolute top-6 right-6 text-muted group-hover:text-primary transition-colors"
+                  />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </>

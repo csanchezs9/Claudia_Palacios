@@ -7,7 +7,24 @@ export type Procedimiento = {
   duration: string;
   category: "estetica" | "clinica" | "laser" | "tecnologia";
   faq: { q: string; a: string }[];
+  image?: string;
 };
+
+const SLUGS_WITH_IMG = new Set([
+  "biopsia-cutanea",
+  "cirugia-dermatologica",
+  "criocirugia",
+  "geneo",
+  "laser-co2-fraccionado",
+  "luz-pulsada-intensa",
+  "peeling-quimico",
+  "plasma-rico-plaquetas",
+  "spectrum-mask",
+]);
+
+export function procImage(slug: string): string | undefined {
+  return SLUGS_WITH_IMG.has(slug) ? `/img/procedimientos/${slug}.jpg` : undefined;
+}
 
 export const PROCEDIMIENTOS: Procedimiento[] = [
   {

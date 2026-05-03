@@ -1,75 +1,122 @@
 import type { Metadata } from "next";
-import { GraduationCap, Award, BookOpen, Stethoscope } from "lucide-react";
-import { whatsappUrl } from "@/lib/utils";
+import Image from "next/image";
+import { GraduationCap, Award, BookOpen, Stethoscope, Phone } from "lucide-react";
+import { whatsappUrl, SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Sobre la Dra. Claudia Palacios — Dermatóloga en Medellín",
   description:
-    "Conoce a la Dra. Claudia Palacios, dermatóloga con más de 15 años de experiencia en Medellín. Formación, afiliaciones y filosofía de atención.",
+    "Médica cirujana y dermatóloga de la UPB. Docente de la Facultad de Medicina de la Universidad de Antioquia. Atención en dermatología general, pediátrica, oncológica y cosmiatría.",
   alternates: { canonical: "/sobre-la-doctora" },
 };
 
 const FORMATION = [
-  "Médica cirujana — Universidad Pontificia Bolivariana (UPB)",
-  "Especialización en Dermatología — Universidad reconocida",
-  "Formación continua en dermatología estética y láser",
-  "Cursos internacionales en toxina botulínica y rellenos dérmicos",
+  "Médica y Cirujana — Universidad Pontificia Bolivariana (UPB)",
+  "Especialización en Dermatología — Universidad Pontificia Bolivariana",
+  "Docente — Facultad de Medicina, Universidad de Antioquia",
+  "Publicaciones científicas — Sociedad Colombiana de Dermatología",
+  "Participación en simposios nacionales e internacionales",
 ];
 
-const AFFILIATIONS = [
-  { name: "ASOCOLDERMA", desc: "Asociación Colombiana de Dermatología" },
-  { name: "DMAS / SADE", desc: "Sociedad de Dermatología Estética" },
-  { name: "UPB", desc: "Universidad Pontificia Bolivariana" },
-  { name: "EAFIT", desc: "Vínculo académico" },
+const SERVICES = [
+  "Dermatología general",
+  "Dermatología pediátrica",
+  "Dermatología oncológica",
+  "Cosmiatría / Estética facial",
 ];
+
+const CONSULTORIO_IMGS = [1, 2, 3, 4, 5, 6];
 
 export default function SobreLaDoctora() {
   return (
     <>
-      <section className="container-page pt-16 pb-12 lg:pt-24">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
-          La Doctora
-        </span>
-        <h1 className="text-5xl lg:text-6xl mt-4 max-w-3xl">
-          Dra. Claudia Palacios
-        </h1>
-        <p className="text-muted text-lg mt-6 max-w-2xl leading-relaxed">
-          Dermatóloga con más de 15 años de experiencia, dedicada al cuidado
-          integral de la piel mediante un enfoque que combina ciencia, estética
-          y atención humana.
-        </p>
+      <section className="container-page pt-16 pb-16 lg:pt-24 grid lg:grid-cols-5 gap-12 items-center">
+        <div className="lg:col-span-3">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+            La Doctora
+          </span>
+          <h1 className="text-5xl lg:text-6xl mt-4 mb-6">
+            Dra. Claudia Palacios
+          </h1>
+          <p className="text-muted text-lg leading-relaxed">
+            Médica y cirujana, dermatóloga de la Universidad Pontificia
+            Bolivariana. Docente de la Facultad de Medicina de la Universidad
+            de Antioquia.
+          </p>
+        </div>
+        <div className="lg:col-span-2 relative aspect-[4/5] max-w-sm mx-auto lg:max-w-none w-full">
+          <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/15 to-primary-dark/10" />
+          <div className="absolute inset-3 rounded-[1.75rem] overflow-hidden shadow-xl">
+            <Image
+              src="/img/dra-claudia.jpg"
+              alt="Dra. Claudia Palacios"
+              fill
+              sizes="(max-width: 1024px) 80vw, 40vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
       </section>
 
-      <section className="container-page pb-16 grid lg:grid-cols-3 gap-10">
+      <section className="container-page pb-16 grid lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-6 text-foreground/90 leading-relaxed">
           <p>
-            La Dra. Claudia Palacios ha construido una práctica reconocida en
-            Medellín por su rigor médico, atención personalizada y dominio de
-            las tecnologías más avanzadas en dermatología clínica, estética y
-            láser.
+            Soy médica y cirujana de la Universidad Pontificia Bolivariana,
+            posteriormente realicé mis estudios de especialización en
+            dermatología en la misma universidad. He participado en múltiples
+            simposios a nivel nacional e internacional presentando trabajos
+            académicos y para mantenerme actualizada en los últimos avances
+            de la dermatología.
           </p>
           <p>
-            Su filosofía profesional se basa en escuchar a cada paciente,
-            comprender sus expectativas y diseñar planes de tratamiento que
-            respeten la individualidad de cada piel. Considera que la
-            dermatología no es solo curar enfermedades, sino acompañar a las
-            personas en una relación saludable y consciente con su piel.
+            He publicado artículos científicos en revistas como las de la
+            Sociedad Colombiana de Dermatología, entre otras, y actualmente
+            me desempeño como docente de la Facultad de Medicina de la
+            Universidad de Antioquia.
           </p>
           <p>
-            Mantiene vínculos académicos activos con universidades como UPB y
-            EAFIT, y participa regularmente en congresos y formación continua
-            para incorporar las últimas evidencias y técnicas a su consulta.
+            Realizo consultas en dermatología general, pediátrica y oncológica.
+            Atiendo a pacientes de todas las edades y géneros con enfermedades
+            propias de la piel, manifestaciones cutáneas de enfermedades
+            internas y, adicionalmente, tengo experiencia en cosmiatría —
+            entendida como una herramienta de la dermatología para hacernos
+            mejores externa e internamente, utilizando los conocimientos de la
+            morfología y la estética humana, siempre buscando conservar la
+            esencia y naturalidad de mis pacientes.
+          </p>
+          <p>
+            Soy una médica integral, honesta, amable, perfeccionista, con gran
+            sensibilidad por el otro. Siempre estoy dispuesta a escuchar las
+            expectativas de mis pacientes y a realizar seguimiento permanente.
+            Mi vocación se fundamenta en el deseo de ofrecer una atención
+            personalizada, basada en la seguridad y el manejo integral, ya que
+            la piel es uno de los regalos más maravillosos que tenemos y
+            debemos cuidarla.
           </p>
         </div>
 
         <aside className="bg-surface border border-border rounded-[var(--radius-card)] p-8 self-start">
           <p className="font-accent italic text-primary text-2xl leading-snug">
-            "La piel es el espejo de la salud. Cada consulta es una conversación
-            que comienza por escuchar."
+            "La piel es uno de los regalos más maravillosos que tenemos. Mi
+            vocación es cuidarla con honestidad, seguridad y cercanía."
           </p>
           <p className="mt-6 text-sm uppercase tracking-[0.2em] text-muted">
             Dra. Claudia Palacios
           </p>
+          <div className="mt-8 pt-6 border-t border-border space-y-3 text-sm">
+            <a href={`tel:${SITE.phone}`} className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+              <Phone size={16} className="text-primary" />
+              {SITE.phoneDisplay}
+            </a>
+            <a
+              href={whatsappUrl("Hola Dra. Claudia, quisiera agendar una consulta.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full mt-4"
+            >
+              Agendar por WhatsApp
+            </a>
+          </div>
         </aside>
       </section>
 
@@ -78,7 +125,7 @@ export default function SobreLaDoctora() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <GraduationCap className="text-primary" />
-              <h2 className="text-3xl">Formación</h2>
+              <h2 className="text-3xl">Formación académica</h2>
             </div>
             <ul className="space-y-3">
               {FORMATION.map((f) => (
@@ -91,17 +138,54 @@ export default function SobreLaDoctora() {
           </div>
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <Award className="text-primary" />
-              <h2 className="text-3xl">Afiliaciones</h2>
+              <Stethoscope className="text-primary" />
+              <h2 className="text-3xl">Áreas de consulta</h2>
             </div>
-            <ul className="space-y-4">
-              {AFFILIATIONS.map((a) => (
-                <li key={a.name}>
-                  <p className="font-medium">{a.name}</p>
-                  <p className="text-sm text-muted">{a.desc}</p>
+            <ul className="space-y-3">
+              {SERVICES.map((s) => (
+                <li key={s} className="flex gap-3 text-foreground/90">
+                  <Award size={16} className="text-primary mt-1 shrink-0" />
+                  {s}
                 </li>
               ))}
             </ul>
+            <p className="text-sm text-muted mt-8 leading-relaxed">
+              Atención a pacientes de todas las edades y géneros, con
+              enfermedades de la piel y manifestaciones cutáneas de
+              enfermedades internas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-y">
+        <div className="container-page">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+              El consultorio
+            </span>
+            <h2 className="text-4xl lg:text-5xl mt-3">
+              Espacio diseñado para tu bienestar
+            </h2>
+            <p className="text-muted mt-4">
+              Torre Medical · Consultorio 614 · El Poblado
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {CONSULTORIO_IMGS.map((i) => (
+              <div
+                key={i}
+                className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border"
+              >
+                <Image
+                  src={`/img/consultorio/consultorio-${i}.jpg`}
+                  alt={`Consultorio Dra. Claudia Palacios — vista ${i}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

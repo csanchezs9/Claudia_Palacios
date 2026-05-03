@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight, Phone } from "lucide-react";
 import { whatsappUrl, SITE } from "@/lib/utils";
@@ -68,19 +69,20 @@ export function Hero() {
           className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none w-full"
         >
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/15 to-primary-dark/10" />
-          <div className="absolute inset-4 rounded-[1.75rem] bg-surface shadow-2xl shadow-primary/10 overflow-hidden flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="font-accent italic text-primary text-3xl">CP</div>
-              <p className="font-display text-2xl mt-4 text-foreground">
-                Dra. Claudia Palacios
+          <div className="absolute inset-4 rounded-[1.75rem] bg-surface shadow-2xl shadow-primary/10 overflow-hidden">
+            <Image
+              src="/img/dra-claudia.jpg"
+              alt="Dra. Claudia Palacios, dermatóloga en Medellín"
+              fill
+              priority
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-6">
+              <p className="font-display text-xl text-surface">Dra. Claudia Palacios</p>
+              <p className="text-xs text-surface/80 uppercase tracking-[0.2em] mt-1">
+                ASOCOLDERMA · UPB · U. de Antioquia
               </p>
-              <p className="text-sm text-muted mt-2 uppercase tracking-[0.2em]">
-                Dermatóloga
-              </p>
-              <div className="mt-6 pt-6 border-t border-border space-y-1 text-xs text-muted">
-                <p>ASOCOLDERMA · DMAS / SADE</p>
-                <p>UPB · EAFIT</p>
-              </div>
             </div>
           </div>
           <div className="absolute -bottom-6 -left-6 bg-surface rounded-2xl p-5 shadow-xl border border-border max-w-[220px]">
